@@ -24,6 +24,7 @@ public class Main {
             linkId.add(count);
             count++;
         }
+        System.out.println("-".repeat(15));
         int cnt = linkId.size()-1;
         while (cnt > -1) {
             int maxAge = age.get(linkId.get(cnt));
