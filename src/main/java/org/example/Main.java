@@ -24,6 +24,12 @@ public class Main {
             linkId.add(count);
             count++;
         }
+        System.out.println(linkId);
+        System.out.println("-".repeat(15));
+
+        System.out.println("Отсортируем...");
+        System.out.println("-".repeat(15));
+
         int cnt = linkId.size()-1;
         while (cnt > -1) {
             int maxAge = age.get(linkId.get(cnt));
@@ -42,6 +48,23 @@ public class Main {
         }
         System.out.println(linkId);
         linkId.forEach(n -> System.out.println(String.format("%1$s %2$s",fio.get(n),age.get(n))));
+        System.out.println("-".repeat(15));
 
+        System.out.println("Отсортируем по убыванию возраста...");
+        System.out.println("-".repeat(15));
+        // Отсортируем по убыванию возраста
+        for(int i=0;i<linkId.size();i++) {
+            for (int j = i + 1; j < linkId.size(); j++) {
+                if (age.get(linkId.get(i)) < age.get(linkId.get(j))) {
+                    int tmp = linkId.get(i);
+                    linkId.set(i, linkId.get(j));
+                    linkId.set(j, tmp);
+                }
+            }
+
+        }
+
+        System.out.println(linkId);
+        linkId.forEach(n -> System.out.println(String.format("%1$s %2$s",fio.get(n),age.get(n))));
     }
 }
